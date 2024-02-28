@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, ReactNode, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, PropsWithChildren, ReactNode, useContext, useEffect, useState } from 'react';
 import { ProductProps } from '../utils/data/products';
 
 interface ICartItem {

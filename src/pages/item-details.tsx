@@ -12,7 +12,7 @@ export default function ItemDetails(){
     const [thumbnail, setThumbnail] = useState<any>(null);
     const { pathname } = useLocation();
     const navigate = useNavigate()
-    const {addToCart, cartItems} = useCart();
+    const {addToCart} = useCart();
     
     useEffect(() => {
         getId();
