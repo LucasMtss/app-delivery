@@ -7,6 +7,7 @@ interface IProductDataProps {
     description: string;
     thumbnail: any;
     quantity?: number;
+    price: number;
 }
 
 interface IProductProps {
@@ -21,6 +22,7 @@ import thumbnail4 from '../assets/products/thumbnail/4.png'
 import thumbnail5 from '../assets/products/thumbnail/5.png'
 import thumbnail6 from '../assets/products/thumbnail/6.png'
 import thumbnail7 from '../assets/products/thumbnail/7.png'
+import { formatCurrency } from "../utils/functions/format-to-currency";
 
 const imagesMap: Record<string, any> = {
     'thumbnail1': thumbnail1,
@@ -52,9 +54,9 @@ export const Product = ({data, onClick}: IProductProps) => {
     }
 
     return(
-        <div className="flex w-full flex-row items-center pb-4" onClick={ onClick ? onClick : handleRedirect}>
+        <div className="flex w-full max-w-[100%] flex-row pb-4 items-end " onClick={ onClick ? onClick : handleRedirect}>
             <img src={thumbnail} className="w-20 h-20 rounded-md"/>
-            <div className="flex-1 ml-3">
+            <div className="flex-1 ml-3 h-full max-w-[100] overflow-hidden">
                 <div className="flex-row items-center justify-between">
                 <span className="text-slate-100 font-subtitle flex-1 ">{data.title}</span>
                 {
@@ -63,7 +65,10 @@ export const Product = ({data, onClick}: IProductProps) => {
                     )
                 }
                 </div>
-                <span className="text-slate-400 text-xs leading-5 mt-0.5">{data.description}</span>
+                <div className="flex flex-col mt-1 w-full">
+                    <span className="text-slate-400 text-xs leading-5 mt-0.5 text-ellipsis overflow-hidden text-nowrap w-full">{data.description}</span>
+                    <span className="text-lime-400 text-xl leading-5 mt-0.5">{formatCurrency(data.price)}</span>
+                </div>
             </div>
         </div>
     )
