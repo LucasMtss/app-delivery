@@ -6,10 +6,10 @@ const MENU = [
     data: [
       {
         id: "1",
-        title: "X-React",
+        title: "X-Bacon",
         price: 24.9,
         description:
-          "Um hamburger tão bonito que me deu fome enquanto eu fazia esse layout para o projeto...",
+          "Um delicioso clássico da casa!",
         cover: "assets/products/cover/1.png",
         thumbnail: "assets/products/thumbnail/1.png",
         ingredients: [
@@ -30,7 +30,7 @@ const MENU = [
     data: [
       {
         id: "2",
-        title: "X-JavaScript",
+        title: "X-Surpresinha",
         price: 34.9,
         description:
           "Os ingredientes desse hambúrguer mudam toda semana, então você sempre terá uma surpresa...",
@@ -49,7 +49,7 @@ const MENU = [
       },
       {
         id: "3",
-        title: "X-Cobol",
+        title: "X-egg cheese",
         price: 32.7,
         description:
           "Aquele hambúrguer que não podemos tirar do cardápio devido aos clientes mais antigos da hamburgueria...",
@@ -68,7 +68,7 @@ const MENU = [
       },
       {
         id: "4",
-        title: "X-Tailwind",
+        title: "X-bolado",
         price: 29.9,
         description:
           "Aquele que você não gosta de primeira, mas depois fica viciado e não consegue mais largar...",
@@ -121,7 +121,7 @@ const MENU = [
     data: [
       {
         id: "7",
-        title: "Hmmm, coquinha!",
+        title: "Coca cola lata",
         price: 6.9,
         thumbnail: "assets/products/thumbnail/7.png",
         cover: "assets/products/cover/7.png",
