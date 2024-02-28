@@ -14,6 +14,24 @@ interface IProductProps {
     onClick?: () => void;
 }
 
+import thumbnail1 from '../assets/products/thumbnail/1.png'
+import thumbnail2 from '../assets/products/thumbnail/2.png'
+import thumbnail3 from '../assets/products/thumbnail/3.png'
+import thumbnail4 from '../assets/products/thumbnail/4.png'
+import thumbnail5 from '../assets/products/thumbnail/5.png'
+import thumbnail6 from '../assets/products/thumbnail/6.png'
+import thumbnail7 from '../assets/products/thumbnail/7.png'
+
+const imagesMap: Record<string, any> = {
+    'thumbnail1': thumbnail1,
+    'thumbnail2': thumbnail2,
+    'thumbnail3': thumbnail3,
+    'thumbnail4': thumbnail4,
+    'thumbnail5': thumbnail5,
+    'thumbnail6': thumbnail6,
+    'thumbnail7': thumbnail7,
+};
+
 export const Product = ({data, onClick}: IProductProps) => {
     const [thumbnail, setThumbnail] = useState<any>(null);
     const navigate = useNavigate();
@@ -22,11 +40,12 @@ export const Product = ({data, onClick}: IProductProps) => {
         handleImportImage();
     }, [])
 
-    async function handleImportImage(){
-        const image = await import(/* @vite-ignore */'../'+data.thumbnail);
-        setThumbnail(image.default)
-        
-    }
+    function handleImportImage() {
+        // Use a imagem estática se ela estiver disponível no mapa
+        const image = imagesMap[`thumbnail${data.id}`];
+        if (image) 
+            setThumbnail(image);
+    } 
 
     function handleRedirect(){
         navigate(`/product/${data.id}`)

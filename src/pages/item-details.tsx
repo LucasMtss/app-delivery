@@ -7,9 +7,27 @@ import { Button } from "../components/button";
 import { useCart } from "../hooks/useCart";
 import { toast } from "sonner";
 
+import cover1 from '../assets/products/cover/1.png'
+import cover2 from '../assets/products/cover/2.png'
+import cover3 from '../assets/products/cover/3.png'
+import cover4 from '../assets/products/cover/4.png'
+import cover5 from '../assets/products/cover/5.png'
+import cover6 from '../assets/products/cover/6.png'
+import cover7 from '../assets/products/cover/7.png'
+
+const imagesMap: Record<string, any> = {
+    'cover1': cover1,
+    'cover2': cover2,
+    'cover3': cover3,
+    'cover4': cover4,
+    'cover5': cover5,
+    'cover6': cover6,
+    'cover7': cover7,
+};
+
 export default function ItemDetails(){
     const [product, setProduct] = useState<ProductProps>();
-    const [thumbnail, setThumbnail] = useState<any>(null);
+    const [cover, setCover] = useState<any>(null);
     const { pathname } = useLocation();
     const navigate = useNavigate()
     const {addToCart} = useCart();
@@ -29,14 +47,14 @@ export default function ItemDetails(){
         }
 
         setProduct(product)
-        handleImportImage(product?.cover ?? '')
-      }
-      
-      async function handleImportImage(imagePath: string){
-        const image = await import(/* @vite-ignore */'../'+imagePath);
-        setThumbnail(image.default)
-        
-    }  
+        handleImportImage(id)
+    }
+
+    function handleImportImage(id: string) {
+        const image = imagesMap[`cover${id}`];
+        if (image) 
+            setCover(image);
+    } 
     
     function handleAddToCart(){
         if(!product) return;
@@ -47,7 +65,7 @@ export default function ItemDetails(){
 
     return (
         <div className="flex-1 max-w-[800px] mx-auto">
-            <img src={thumbnail} className="max-h-lvh bg-cover mx-auto" />
+            <img src={cover} className="max-h-lvh bg-cover mx-auto" />
             <div className="flex flex-col p-5 mt-2 flex-1">
                 <h2 className="text-white text-2xl font-heading">{product?.title}</h2>
                 <span className="text-lime-400 text-2xl font-heading my-2">{formatCurrency(product?.price ?? 0)}</span>
