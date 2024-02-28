@@ -108,7 +108,6 @@ export default function Cart(){
         if(notes.length)
             message += `\n\nObservações do pedido: ${notes}`
 
-
         window.open(baseUrl + encodeURI(message), '_blank')
         
         toast.success('Pedido enviado com sucesso')
