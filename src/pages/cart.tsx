@@ -27,18 +27,21 @@ export default function Cart(){
     const [paymentMethod, setPaymentMethod] = useState('PIX');
     const [open, setOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState<null | ProductProps>(null)
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const {cartItems, totalValue, removeItem, clearCart} = useCart();
 
     const paymentMethpodOptions = ['PIX', 'Débito', 'Crédito', 'Dinheiro']
 
     async function handleFindAddress() {
+        setIsLoading(true);
         const response = await fetch(`https://viacep.com.br/ws/${zipcode}/json/`);
         const body = await response.json();
         if(body.erro) toast.error('CEP inválido');
         setDistrict(body.bairro);
         setStreet(body.logradouro);
         setCity(body.localidade);
+        setIsLoading(false);
     }
 
     function validateFields(){
@@ -149,7 +152,7 @@ export default function Cart(){
                                     </div>
                                     <div className="sm:flex-row sm:items-end flex-col flex items-start gap-5 max-w-[600px]">
                                         <Input maxLength={8} numericOnly onChangeValue={e => setZipcode(e)} value={zipcode} label="Informe o CEP do endereço de entrega"/>
-                                        <Button title="Buscar endereço" onClick={handleFindAddress}/>
+                                        <Button isLoading={isLoading} title="Buscar endereço" onClick={handleFindAddress}/>
                                     </div>
                                     <div className="flex gap-5 flex-wrap justify-between">
                                         <div className="sm:w-[48%] w-full">
@@ -182,7 +185,7 @@ export default function Cart(){
                             </div>
                         </div>
                         <div className="p-5 gap-5 flex flex-col">
-                            <Button title="Enviar pedido" onClick={handleSendOrder}/>
+                            <Button isLoading={isLoading} title="Enviar pedido" onClick={handleSendOrder}/>
                             <Button title="Voltar ao cardápio" transparent onClick={() => navigate('/')}/>
                         </div>
                     </div>
