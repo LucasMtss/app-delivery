@@ -146,8 +146,8 @@ export default function Cart(){
                                         }
                                     </div>
                                     <div className="flex flex-row gap-2 items-center mt-5 mb-4">
-                                        <span className="text-white text-xls font-subtitle">Total:</span>
-                                        <span className="text-lime-400 text-2xl font-heading">{formatCurrency(totalValue)}</span>
+                                        <span className="text-slate-900 text-xls font-subtitle">Total:</span>
+                                        <span className="text-red-400 text-2xl font-heading">{formatCurrency(totalValue)}</span>
                                     </div>
                                     <div className="sm:flex-row sm:items-end flex-col flex items-start gap-5 max-w-[600px]">
                                         <Input maxLength={8} numericOnly onChangeValue={e => setZipcode(e)} value={zipcode} label="Informe o CEP do endereço de entrega"/>

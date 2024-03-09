@@ -14,7 +14,7 @@ export function Home() {
         MENU.map(section => {
           return (
             <div className='w-full pl-5'>
-              <h4 className='text-slate-50 text-xl font-bold mb-3'>{section.title}</h4>
+              <h4 className='text-slate-900 text-xl font-bold mb-3'>{section.title}</h4>
               {
                 section.data.map(product => {
                   return <Product data={product}/>
