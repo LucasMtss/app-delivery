@@ -15,12 +15,12 @@ interface IProductProps {
     onClick?: () => void;
 }
 
-import thumbnail1 from '../assets/products/thumbnail/1.jpg'
-import thumbnail2 from '../assets/products/thumbnail/2.jpg'
-import thumbnail3 from '../assets/products/thumbnail/3.jpg'
+import thumbnail1 from '../assets/products/thumbnail/1.png'
+import thumbnail2 from '../assets/products/thumbnail/2.png'
+import thumbnail3 from '../assets/products/thumbnail/3.png'
 import thumbnail4 from '../assets/products/thumbnail/4.png'
-import thumbnail5 from '../assets/products/thumbnail/5.jpg'
-import thumbnail6 from '../assets/products/thumbnail/6.jpg'
+import thumbnail5 from '../assets/products/thumbnail/5.png'
+import thumbnail6 from '../assets/products/thumbnail/6.png'
 import thumbnail7 from '../assets/products/thumbnail/7.png'
 import { formatCurrency } from "../utils/functions/format-to-currency";
 
@@ -58,16 +58,16 @@ export const Product = ({data, onClick}: IProductProps) => {
             <img src={thumbnail} className="w-20 h-20 rounded-md"/>
             <div className="flex-1 ml-3 h-full max-w-[100] overflow-hidden">
                 <div className="flex-row items-center justify-between">
-                <span className="text-slate-900 font-subtitle flex-1 ">{data.title}</span>
+                <span className="text-slate-100 font-subtitle flex-1 ">{data.title}</span>
                 {
                     data?.quantity && (
-                        <span className="text--400 font-subtitle text-sm ml-2">X {data.quantity}</span>
+                        <span className="text-slate-400 font-subtitle text-sm ml-2">X {data.quantity}</span>
                     )
                 }
                 </div>
                 <div className="flex flex-col mt-1 w-full">
                     <span className="text-slate-400 text-xs leading-5 mt-0.5 text-ellipsis overflow-hidden text-nowrap w-full">{data.description}</span>
-                    <span className="text-red-400 text-xl leading-5 mt-0.5">{formatCurrency(data.price)}</span>
+                    <span className="text-lime-400 text-xl leading-5 mt-0.5">{formatCurrency(data.price)}</span>
                 </div>
             </div>
         </div>

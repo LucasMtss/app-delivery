@@ -7,12 +7,12 @@ import { Button } from "../components/button";
 import { useCart } from "../hooks/useCart";
 import { toast } from "sonner";
 
-import cover1 from '../assets/products/cover/1.jpg'
-import cover2 from '../assets/products/cover/2.jpg'
-import cover3 from '../assets/products/cover/3.jpg'
+import cover1 from '../assets/products/cover/1.png'
+import cover2 from '../assets/products/cover/2.png'
+import cover3 from '../assets/products/cover/3.png'
 import cover4 from '../assets/products/cover/4.png'
-import cover5 from '../assets/products/cover/5.jpg'
-import cover6 from '../assets/products/cover/6.jpg'
+import cover5 from '../assets/products/cover/5.png'
+import cover6 from '../assets/products/cover/6.png'
 import cover7 from '../assets/products/cover/7.png'
 
 const imagesMap: Record<string, any> = {
@@ -67,8 +67,8 @@ export default function ItemDetails(){
         <div className="flex-1 max-w-[800px] mx-auto">
             <img src={cover} className="max-h-lvh bg-cover mx-auto" />
             <div className="flex flex-col p-5 mt-2 flex-1">
-                <h2 className="text-slate-900 text-2xl font-heading">{product?.title}</h2>
-                <span className="text-red-400 text-2xl font-heading my-2">{formatCurrency(product?.price ?? 0)}</span>
+                <h2 className="text-white text-2xl font-heading">{product?.title}</h2>
+                <span className="text-lime-400 text-2xl font-heading my-2">{formatCurrency(product?.price ?? 0)}</span>
                 <span className="text-slate-400 font-body text-base leading-6 mb-6">{product?.description}</span>
                 {
                     product?.ingredients.map(ingredient => (
