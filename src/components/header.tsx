@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import Logo from '../assets/logo-grande.svg'
+import Logo from '../assets/logo-grande.png'
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 interface IHeaderProps {
@@ -13,7 +13,7 @@ export function Header({title, cartQuatityItems = 0}: IHeaderProps){
     return (
         <div className="flex flex-row items-start border-b border-slate-700 pb-5 mx-5">
             <div className="flex-1">
-                <img className="w-32 mb-2 md:w-20 sm:w-1/3" src={Logo} />
+                <img className="w-32 mb-2 md:w-[200px] sm:w-1/3" src={Logo} />
                 <span className="text-white text-2xl font-heading">{title}</span>
             </div>
             {
